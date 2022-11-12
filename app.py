@@ -1,8 +1,12 @@
 from flask import Flask, request
+from flask_cors import CORS
 from tmdb import get_details, get_trending
 
 #* initialize flask app
 app = Flask(__name__)
+
+#* allow cross-origin requests
+CORS(app)
 
 @app.route("/trending")
 def trending():

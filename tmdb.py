@@ -16,3 +16,8 @@ def get_details(media_type:str, media_id:int):
     request_url = f'{TMDB_API_URL_BASE}/{media_type}/{media_id}?api_key={TMDB_API_KEY}&language=en-US'
     result = requests.get(request_url)
     return result.json()
+
+def get_search_result(media_type:str, query:str):
+    request_url = f'{TMDB_API_URL_BASE}/search/{media_type}?api_key={TMDB_API_KEY}&query={query}&language=en-US&page=1&include_adult=false'
+    result = requests.get(request_url)
+    return result.json()
